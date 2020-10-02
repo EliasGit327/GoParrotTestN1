@@ -1,33 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import styled from 'styled-components/native';
-
-const StyledView = styled.View`
-  background-color: papayawhip;
-`
-
-const StyledText = styled.Text`
-  color: palevioletred;
-`
+import HomeScreen from "./src/HomeScreen";
+import { Provider } from 'react-redux';
+import { ThemeStore } from "./stores/theme-store/theme-store";
+import { StatusBar } from "react-native";
+import { Text } from 'react-native';
+import { ThemeProvider } from "styled-components/native";
 
 const App = () => {
-  return (
-    <View style={styles.container}>
-      <StyledView>
-        <StyledText>Hello World!</StyledText>
-      </StyledView>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return (
+    <Provider store={ThemeStore}>
+      <HomeScreen/>
+    </Provider>
+  )};
+export default App;
